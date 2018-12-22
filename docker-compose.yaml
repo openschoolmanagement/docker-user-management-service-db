@@ -1,9 +1,8 @@
 version: '3.3'
 
 services:
-    mysql:
+    mysql_user_db:
         image: mysql:latest
-        name: OSM_MySQL_User_DB
         environment:
             MYSQL_DATABASE: OSM_USER_DB
             MYSQL_ROOT_PASSWORD: root
@@ -15,7 +14,7 @@ services:
         volumes: 
             - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 
-    mongo:
+    mongo_user_eventstore:
         image: 'bitnami/mongodb:latest'
         name: OSM_MongoDB_User_EventStore
         restart: always
